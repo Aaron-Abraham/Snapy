@@ -1,0 +1,59 @@
+.snake-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-family: 'Orbitron', sans-serif;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  gap: 1px;
+  background: var(--bg, #050a0f);
+  border: 2px solid #0d2035;
+  box-shadow: 0 0 20px #00e5ff44;
+  position: relative;
+}
+.cell {
+  background: rgba(255,255,255,0.02);
+}
+.cell.snake {
+  background: linear-gradient(45deg, #00ff88, #00e5ff);
+  box-shadow: 0 0 8px #00ff88, inset 0 0 4px #000;
+}
+.cell.food {
+  background: radial-gradient(circle, #ffd700 40%, #ff2d78 100%);
+  box-shadow: 0 0 12px #ffd700, inset 0 0 4px #000;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5,10,15,0.9);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+.overlay .game-over {
+  font-size: 2rem;
+  color: #ff2d78;
+  text-shadow: 0 0 12px #ff2d78;
+  margin-bottom: 20px;
+}
+.overlay button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(135deg, #00ff88, #00e5ff);
+  border: none;
+  border-radius: 6px;
+  color: #050a0f;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00ff8850;
+}
+.overlay button:hover {
+  transform: scale(1.05);
+}
