@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SnakeGame from './components/SnakeGame';
 import './App.css';
+
+// Royalty-free Lofi background music
+const BGM_URL = "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3";
 
 function App() {
   const [score, setScore] = useState(0);
@@ -17,14 +20,32 @@ function App() {
     }
   };
 
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  const toggleMusic = () => {
+    if (isMusicPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsMusicPlaying(!isMusicPlaying);
+  };
+
   useEffect(() => {
     document.title = `Snapy – Score ${score}`;
   }, [score]);
 
   return (
     <div className="app-container">
+      <audio ref={audioRef} src={BGM_URL} loop preload="auto" />
       <header className="header">
-        <h1>SNAPY</h1>
+        <div className="header-top">
+          <h1>SNAPY</h1>
+          <button className="music-toggle" onClick={toggleMusic} title="Toggle Music">
+            {isMusicPlaying ? '🔊' : '🔇'}
+          </button>
+        </div>
         <div className="stats">
           <div className="stat">
             <span className="label">Score</span>

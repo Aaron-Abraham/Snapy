@@ -48,6 +48,34 @@ html, body, #root {
   text-shadow: 0 0 8px var(--accent);
 }
 
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.music-toggle {
+  background: none;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: var(--accent-bg);
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--accent);
+}
+
 .stats {
   display: flex;
   gap: 2rem;
